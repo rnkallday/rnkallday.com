@@ -33,8 +33,8 @@ paginate = 80
   articleBackgroundStyle = "bg-gradient-to-l from-blue-100 to-green-100 dark:from-blue-800 dark:to-green-800"
 
   [params.author]
-    email = 'ben@benstrawbridge.com'
-    name = 'Ben Strawbridge'
+    email = 'riankochel@gmail.com'
+    name = 'Rian Kochel'
   [params.footer]
     tagCloud = true
   [params.twClasses]
