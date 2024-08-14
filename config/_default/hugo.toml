@@ -1,0 +1,80 @@
+# !!! exampleSite only, set this to your own site URL
+baseURL= "localhost"
+languageCode= "en-us"
+title= "My new ryder theme website"
+theme= ["ryder"]
+summaryLength = 15
+enableRobotsTXT = true
+copyright = "©️ 2024"
+enableEmoji = true
+enableGitInfo = true
+paginate = 80
+
+[params]
+  description = 'A theme for hugo'
+  TocOpen = true
+  # UseHugoToc = true
+  # enabledebugpanel = true 
+  # navbar_fixed = true
+  excludedTags = ["excluded"]
+  # showDate = true 
+  hideAuthor = false
+  showDarkToggle = true
+  # if you use maps, load it up
+  loadLeaflet = false
+  # for open graph default image when sharing site links
+  og_image_default = 'images/ryder-theme-og.webp'
+  # homePageFeedHeader = "the new style"
+  logo_firstWord = 'My'
+  logo_lastWord = 'Website'
+  logo_tagline = "Update with your tagline"
+  logo_fontClass = 'font-titillium'
+  repository = "https://github.com/arts-link/ryder"
+  articleBackgroundStyle = "bg-gradient-to-l from-blue-100 to-green-100 dark:from-blue-800 dark:to-green-800"
+
+  [params.author]
+    email = 'ben@benstrawbridge.com'
+    name = 'Ben Strawbridge'
+  [params.footer]
+    tagCloud = true
+  [params.twClasses]
+    headerBackgroundFrameOuter = "bg-gradient-to-r from-slate-900 to-slate-700 border-b border-fuchsia-600 text-neutral-100"
+    headerBackgroundFrameInner = "bg-header-ryder h-[300px] bg-cover bg-left"
+
+[menus]
+[[menus.footer]]
+    name = 'Tags'
+    pageRef = '/tags'
+    weight = 9990
+[[menus.footer]]
+    name = 'Contact Us'
+    pageRef = '/contact'
+    weight = 10
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.121.1"
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "hugo_stats.json"
+    target = "assets/watching/hugo_stats.json"
+  [[module.imports]]
+    path = 'github.com/arts-link/ryder'
+
+[build]
+  writeStats = true
+  [[build.cachebusters]]
+    source = "assets/watching/hugo_stats\\.json"
+    target = "styles\\.css"
+  [[build.cachebusters]]
+    source = "(postcss|tailwind)\\.config\\.js"
+    target = "css"
+  [[build.cachebusters]]
+    source = "assets/.*\\.(js|ts|jsx|tsx)"
+    target = "js"
+  [[build.cachebusters]]
+    source = "assets/.*\\.(.*)$"
+    target = "$1"
